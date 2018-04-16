@@ -91,7 +91,7 @@ action(lat: any, longt : string, id : any, number : any, ref : any){
   let caseID = localStorage.setItem('caseID', this.id);
   console.log(id); 
   console.log(lat);
-  console.log(longt);  
+  console.log(longt);   
 
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Choose an Action',
