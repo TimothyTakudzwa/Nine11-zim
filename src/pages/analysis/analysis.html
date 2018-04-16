@@ -1,0 +1,83 @@
+<!--
+  Generated template for the AnalysisPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary">
+        <ion-title>Analysis</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card>
+        <ion-card-header style="color: white; border-bottom : 2px dotted black">
+            <h1 style="color: #c6780d; font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif"> {{name}} Police Station</h1>
+        </ion-card-header>
+        <ion-card-content style="color: black; border-bottom : 2px dotted black">
+            <br/>
+            <h2>In Your location what can you say to be the prevalent crime, choose crime type and Enter a brief description on how these crimes occur in your location then click complete analysis, or you can help by liking or unliking previously made analysis
+                on the 'What Others Said' section</h2>
+            <ion-item>
+                <ion-label>Crime Type</ion-label>
+                <ion-select [(ngModel)]="userData.crime_type">
+                    <ion-option value="Robbery">Robbery</ion-option>
+                    <ion-option value="Murder">Murder</ion-option>
+                    <ion-option value="Domestic Violence">Domestic Violence</ion-option>
+                    <ion-option value="Homicide">Homicide</ion-option>
+                    <ion-option value="Rape">Rape</ion-option>
+                    <ion-option value="Suicide">Suicide</ion-option>
+                    <ion-option value="Accident">Accident</ion-option>
+                    <ion-option value="Chaos">Chaos</ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item>
+
+                <ion-label stacked style="color: #FA9307">Brief description on how they occur?</ion-label>
+                <ion-input type="text" placeholder="e.g Suicide By Hanging" [(ngModel)]="userData.description"></ion-input>
+            </ion-item>
+            <ion-item> <button ion-button color="default" (click)="signup()" full medium round>Complete Analysis</button>
+            </ion-item>
+        </ion-card-content>
+        <ion-item>
+
+            <h2 style="color: #FA9307">What Others Said</h2> <br/>
+            <h3>You can Like or unlike to help in analysis </h3>
+        </ion-item>
+        <div *ngFor="let object of objects" style="border-bottom: 1px dashed #4D011D">
+
+            <ion-item>
+                <p>Prevalent Crime: {{object.crime_type}} </p>
+            </ion-item>
+
+
+
+
+            <ion-card-content>
+                <p>{{object.description}}</p>
+            </ion-card-content>
+
+            <ion-row>
+                <ion-col>
+                    <button (click)="like(object.id, object.crime_type)" (press)="showReactions($event)" ion-button clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>{{object.upvotes}} Likes</div>
+      </button>
+                </ion-col>
+                <ion-col>
+                    <button (click)="dislike(object.id)" (press)="showReactions($event)" ion-button clear small>
+        <ion-icon name="thumbs-down"></ion-icon>
+        <div>{{object.downvotes}} Dislikes</div>
+      </button>
+                </ion-col>
+
+
+            </ion-row>
+        </div>
+    </ion-card>
+</ion-content>

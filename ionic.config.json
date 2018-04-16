@@ -1,0 +1,8 @@
+{
+  "name": "nine11-zim",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

@@ -1,0 +1,44 @@
+<!--
+  Generated template for the CasesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary">
+
+        <ion-title center text-center>Reports Page</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card>
+        <ion-fab right bottom>
+            <button ion-fab color="secondary"><ion-icon name="call"></ion-icon></button>
+            <ion-fab-list side="top">
+                <button ion-fab color="primary"><ion-icon name="call" (click)="call()"> </ion-icon></button>
+            </ion-fab-list>
+
+            <ion-fab-list side="left">
+                <button ion-fab color="dark"><ion-icon name="medkit"></ion-icon></button>
+            </ion-fab-list>
+        </ion-fab>
+        <ion-card-header>
+            <h1 style="font-family: cambria;color:#c6780d"> Please Select Action</h1>
+        </ion-card-header>
+
+        <ion-card-content>
+            Click on Create New Case to open a new case based on your current location or a manual location
+        </ion-card-content>
+        <button ion-button full color="success" (click)="goToReportsPage()" round>Create New Case</button>
+        <ion-card-content>
+            Click on Follow up a case to be able to follow up on previously reported cases, to either close or see the progress on the case, it would require you to have a Case Reference Number</ion-card-content>
+        <button ion-button full color="success" (click)="action()" round>Follow up on a Case</button>
+        <ion-item>
+        </ion-item>
+
+    </ion-card>
+</ion-content>

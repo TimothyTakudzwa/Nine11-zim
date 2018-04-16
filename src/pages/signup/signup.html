@@ -1,0 +1,61 @@
+<!--
+  Generated template for the ReportsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary">
+        <ion-title>Sign - Up</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="appBackground">
+
+    <ion-card style="background-color: #1f1f21">
+
+        <ion-card-header>
+            <h2 style="color: White"> Registration
+            </h2>  </ion-card-header>
+
+        <ion-card-content style="background-color: #1f1f21">
+
+            <ion-list>
+
+                <ion-item>
+
+                    <ion-label stacked>Name</ion-label>
+
+                    <ion-input type="text" [(ngModel)]="userData.name"></ion-input>
+                </ion-item>
+                <ion-item>
+
+                    <ion-label stacked>Username</ion-label>
+
+                    <ion-input type="text" [(ngModel)]="userData.username"></ion-input>
+                </ion-item>
+                <ion-item>
+
+                    <ion-label stacked>Password</ion-label>
+
+                    <ion-input type="password" [(ngModel)]="userData.password"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Where do you stay</ion-label>
+                    <ion-input type="text" [(ngModel)]="userData.location"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Phone Number</ion-label>
+
+                    <ion-input type="number"  [(ngModel)]="userData.phone"></ion-input>
+                </ion-item>
+
+                <button ion-button full color="success" (click)="signup()">Complete Signup</button>
+
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

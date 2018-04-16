@@ -1,0 +1,33 @@
+<ion-header color="primary">
+    <ion-navbar>
+        <ion-title>
+            Crime Analysis
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+
+        <ion-card-header>
+            <h2 style="color:#FA9307">Location Based Crime Anaysis</h2>
+        </ion-card-header>
+
+        <ion-card-content>
+            This section allows you to take part in helping the local Police Force in trying to reduc the number of crimes that occur in your location by analyzing with them the most prevalent crimes based on your location and determining how these crimes are occuring,
+            this in turn will help them to devic mechanisms to reduce these trends
+
+            <h2 style="color:#FA9307 ">How?</h2>
+
+            1. Click Pick Location Below <br/> 2. Choose your location<br/>3. Drag Marker to where you stay <br/> 4. Click Proceed and answer few questions
+
+        </ion-card-content>
+        <ion-item>
+            <button ion-button (click)="addMarker()"><ion-icon name="add"></ion-icon>Pick Location</button>
+        </ion-item>
+        <ion-item>
+            <div #map id="map" style="height:300px; width: 100%"></div>
+        </ion-item>
+        <ion-item><button (click)="signup()" ion-button full>Proceed to Analyze</button></ion-item>
+    </ion-card>
+</ion-content>

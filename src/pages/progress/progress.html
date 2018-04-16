@@ -1,0 +1,57 @@
+<!--
+  Generated template for the ComplaintsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary">
+        <ion-title>Case Progress</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card>
+
+        <ion-item>
+            <h1 style="color:#FA9307; font-family: cambria">Update Case Progress</h1>
+        </ion-item>
+        <ion-item>
+
+
+            <ion-textarea rows="4" [(ngModel)]="userData2.message" placeholder="Enter New Case Details.... " style="font-family: cambria;  border: 2px solid #FA9307;
+    border-radius: 8px;"></ion-textarea>
+
+        </ion-item>
+        <ion-item>
+            <button (click)="signup()" ion-button color="primary" style="color:white; font-family: cambria">Submit Complaint</button></ion-item>
+        <ion-item style="border-top: 3px solid white; border-top: 1px solid #4D011D">
+            <h1 style="color:#FA9307; font-family: cambria">Case Notes</h1>
+        </ion-item>
+        <div *ngFor="let object of objects" style="border-bottom: 1px dashed #4D011D">
+            <div>
+                <ion-item>
+                    <ion-avatar item-start>
+                        <img src="img/455.png">
+                    </ion-avatar>
+                    <h2>{{object.user}}</h2>
+                    <p>{{object.date}}</p>
+                </ion-item>
+
+
+
+
+                <ion-item>
+                    <p style="color: black; white-space: normal;">{{object.description}}</p>
+                </ion-item>
+
+
+
+            </div>
+
+        </div>
+    </ion-card>
+</ion-content>

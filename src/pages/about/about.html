@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>
+            Alerts
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card *ngFor="let object of objects">
+        <div>
+            <ion-item>
+                <ion-avatar item-start>
+                    <img src="../img/1.jpg">
+                </ion-avatar>
+                <h2>{{object.alert_by}}</h2>
+                <p>{{object.date}}</p>
+            </ion-item>
+
+
+
+            <ion-card-content>
+                <p style="color: black;">{{object.alert_message}}<br/><u (click)="like(object.id)" style="color:#6899f9">View Comments...</u></p>
+            </ion-card-content>
+
+            <ion-row>
+                <ion-col>
+                    <button (click)="like(object.id)" (press)="showReactions($event)" ion-button clear small>
+        <ion-icon color="{{color}}" name="thumbs-up"></ion-icon>
+        <div>{{object.upvotes}}Likes</div>
+      </button>
+                </ion-col>
+                <ion-col>
+                    <button (click)="like()" (press)="showReactions($event)" ion-button clear small>
+        <ion-icon color="{{color}}" name="thumbs-down"></ion-icon>
+        <div>{{object.downvotes}}Dislikes</div>
+      </button>
+                </ion-col>
+
+
+            </ion-row>
+        </div>
+
+    </ion-card>
+</ion-content>

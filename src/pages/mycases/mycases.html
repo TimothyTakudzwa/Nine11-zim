@@ -1,0 +1,39 @@
+<!--
+  Generated template for the MycasesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header style="background-color:#820131; color:wheat">
+
+    <ion-navbar>
+        <ion-title>My Page</ion-title>
+    </ion-navbar>
+
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ion-card>
+
+        <ion-card-header style="background-color:#820131; color:wheat">
+            My Cases
+        </ion-card-header>
+        <ion-card-content>
+            <ion-list>
+                <button (click)="action(object.lat, object.longt, object.id, object.location, object.case_id)" ion-item *ngFor="let object of objects">
+                <ion-icon name="folder" color="primary" item-start></ion-icon> 
+              <span style="color:#820131">  {{object.case_id}} :  {{object.case_type}} </span>
+            </button>
+
+
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

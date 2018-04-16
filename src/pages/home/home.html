@@ -1,0 +1,84 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-buttons end>
+            <button ion-button (click)="logout()"><ion-icon name="contact"></ion-icon> Logout</button>
+        </ion-buttons>
+        <ion-title>
+
+            <h2 center text-center style="font-family: monotype corsiva;font-size: 30px;">Nine11-Zim!
+
+            </h2>
+
+
+        </ion-title>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding style="font-family: cambria;">
+    <ion-fab right bottom>
+        <button ion-fab color="primary"><ion-icon name="call"></ion-icon></button>
+        <ion-fab-list side="top">
+            <button ion-fab color="primary"><ion-icon name="call" (click)="call()"> </ion-icon></button>
+        </ion-fab-list>
+
+        <ion-fab-list side="left">
+            <button ion-fab color="dark"><ion-icon name="medkit"></ion-icon></button>
+        </ion-fab-list>
+    </ion-fab>
+    <p>
+        <ion-card style="background-color:#b59fb0">
+            <ion-card-header color="danger">
+                <b><h2 style="color: #f9e3eb">  With Nine11 - Zim you can:</h2> </b>
+            </ion-card-header>
+
+            <ion-list color="secondary">
+                <button ion-item (click)="goToReportsPage()">
+      <ion-icon color="primary" name="walk" item-start></ion-icon>
+      Make Reports
+    </button>
+                <button ion-item (click)="goToReportsPage()">
+      <ion-icon color="primary" name="folder-open" item-start></ion-icon>
+      Follow up a case
+    </button>
+
+
+                <button ion-item (click)="goToAboutPage()">
+      <ion-icon color="primary" name="alarm" item-start></ion-icon>
+      View Public Alerts 
+    </button>
+
+                <button ion-item (click)="goToContactPage()">
+      <ion-icon color="primary" name="chatbubbles" item-start></ion-icon>
+      Make Complaints 
+    </button>
+
+                <button ion-item (click)="goToHomePage()">
+      <ion-icon color="primary" name="analytics" item-start></ion-icon>
+      Analyse Prevalent Crimes
+    </button>
+                <button ion-item (click)="goToContactPage()">
+      <ion-icon color="primary" name="keypad" item-start></ion-icon>
+      Give Anonymus Tips
+    </button>
+
+                <button ion-item (click)="goToHomePage()">
+      <ion-icon color="primary" name="contacts" item-start></ion-icon>
+      View Wanted/Missing Persons
+    </button>
+                <button ion-item (click)="goToHomePage()">
+      <ion-icon color="primary" name="bulb" item-start></ion-icon>
+      Pass Suggestions
+    </button>
+                <button ion-item (click)="goToReportsPage()">
+      <ion-icon color="primary" name="medkit" item-start></ion-icon>
+      Call Emergency Numbers
+    </button>
+
+
+
+            </ion-list>
+        </ion-card>
+    </p>
+
+</ion-content>
