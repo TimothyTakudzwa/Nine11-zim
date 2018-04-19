@@ -2,16 +2,16 @@ import { ReportsPage } from '../reports/reports';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation';
 import { LoadingController } from 'ionic-angular';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service/auth-service';
 import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
 import { CasesPage } from '../cases/cases';  
 import { CallNumber } from '@ionic-native/call-number';   
-
 declare var google;
 import { MakereportPage } from '../makereport/makereport';
+
 
 
 @Component({
@@ -24,7 +24,9 @@ public goToReportsPage(){
     this.navCtrl.push(CasesPage); 
 }
 public logout(){
-    this.navCtrl.push(ReportsPage); 
+    localStorage.removeItem("username");   
+    this._app.getRootNav().setRoot(ReportsPage);
+    
 }
 
 public goToContactPage(){
@@ -40,6 +42,8 @@ public goToHomePage(){
 
 @ViewChild('map') mapElement: ElementRef;
 map: any;
+
+username : any;
 calls:any;
 lati: any = "";
 long: any = "";
@@ -51,7 +55,7 @@ userData = {
 };
 responseData: any;
 results: any;
-constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthService, public loadingController: LoadingController, public geolocation: Geolocation, public alertCtrl: AlertController, private callNumber: CallNumber) {
+    constructor(public navCtrl: NavController, public _app: App, public navParams: NavParams, public authService: AuthService, public loadingController: LoadingController, public geolocation: Geolocation, public alertCtrl: AlertController, private callNumber: CallNumber) {
 
   }
 loadMap() {
@@ -91,11 +95,6 @@ loadMap() {
             }, (err) => {
                 // Error log
             });
-
-
-
-
-
         loader.dismiss();
         _.showConfirm();
     }, (err) => {

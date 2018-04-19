@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReactionsPage } from '../pages/reactions/reactions';
 import { AboutPage } from '../pages/about/about';
 import { ReviewPage } from '../pages/review/review';
@@ -60,7 +61,7 @@ import { CallNumber } from '@ionic-native/call-number';
     Tabs2Page
   ],
   imports: [
-    BrowserModule, HttpModule,
+    BrowserModule, HttpModule, FormsModule, ReactiveFormsModule, 
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -72,7 +73,7 @@ import { CallNumber } from '@ionic-native/call-number';
     ProgressPage,
     MakereportPage,
     PolicePage,
-    MycasesPage,
+    MycasesPage, 
     DirectionsPage,
     AnalysisPage,
     CasedisplayPage,

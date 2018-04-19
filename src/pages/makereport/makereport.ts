@@ -7,6 +7,7 @@ import { LoginPage } from '../login/login';
 import { LoadingController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service/auth-service';
 import { AlertController } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
 import * as $ from 'jquery';
 
 declare var google;
@@ -25,12 +26,26 @@ declare var google;
 export class MakereportPage {
  @ViewChild('map') mapElement: ElementRef;
   map: any;
+  todo : FormGroup;
   lati: any = "";
   long: any = "";
   responseData: any;
   userData = { "name": "", "phone": "", "age": "", "address": "", "latitude": "", "longitude": "", "sex": "", "crimetype": "", "details": "", "description": "" };
 
-  constructor(public navCtrl: NavController, public geolocation: Geolocation, public navParams: NavParams, public authService: AuthService, public loadingController: LoadingController, public alertCtrl: AlertController) {
+  constructor(public formBuilder: FormBuilder, public navCtrl: NavController, public geolocation: Geolocation, public navParams: NavParams, public authService: AuthService, public loadingController: LoadingController, public alertCtrl: AlertController) {
+    this.todo = new FormGroup({
+      fullname: new FormControl("",[Validators.required]),
+     
+      phone: new FormControl(""),
+      address: new FormControl(""),
+      age: new FormControl(""),
+      sex: new FormControl([]),
+      latit: new FormControl(""),
+      longt: new FormControl(""),
+      crimetype: new FormControl([]),
+      details: new FormControl("",[Validators.required]),
+      description: new FormControl(""),
+    });
   }
 
   ionViewDidLoad() {

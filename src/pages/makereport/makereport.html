@@ -18,75 +18,77 @@
 
 <ion-content padding>
     <ion-card>
-        <ion-item>
-            <h2 style="font-weight: bold; color: #820131; font-size: 20px;">New Case</h2>
-        </ion-item>
-        ‎
-        <ion-card-content>
-            <h3>Location: <i>(Click on Pick Location to pick location or leave as is to use current location)</i> </h3>
-        </ion-card-content>
-        <ion-card-header style="border: 1px solid #820131" #map id="map" style="height:300px; width: 100%">
+        <form [formGroup]="todo">
+            <ion-item>
+                <h2 style="font-weight: bold; color: #820131; font-size: 20px;">New Case</h2>
+            </ion-item>
+            ‎
+            <ion-card-content>
+                <h3>Location: <i>(Click on Pick Location to pick location or leave as is to use current location)</i> </h3>
+            </ion-card-content>
+            <ion-card-header style="border: 1px solid #820131" #map id="map" style="height:300px; width: 100%">
 
-        </ion-card-header>
-        <ion-item>
+            </ion-card-header>
+            <ion-item>
 
-            <ion-label floating>Enter Full Name</ion-label>
-            <ion-input type="text" style="border: 1px solid #820131" [(ngModel)]="userData.name"></ion-input>
-        </ion-item>
-        <ion-item>
+                <ion-label floating>Enter Full Name</ion-label>
+                <ion-input type="text" style="border: 1px solid #820131" [(ngModel)]="userData.name" formControlName="fullname"></ion-input>
+            </ion-item>
+            <ion-item>
 
-            <ion-label floating>Enter Phone Number</ion-label>
-            <ion-input type="number" style="border: 1px solid #820131" [(ngModel)]="userData.phone"></ion-input>
-        </ion-item>
-        <ion-item>
+                <ion-label floating>Enter Phone Number</ion-label>
+                <ion-input type="number" style="border: 1px solid #820131" [(ngModel)]="userData.phone" formControlName="phone"></ion-input>
+            </ion-item>
+            <ion-item>
 
-            <ion-label floating>Age</ion-label>
-            <ion-input type="number" style="border: 1px solid #820131" [(ngModel)]="userData.age"></ion-input>
-        </ion-item>
-        <ion-item>
+                <ion-label floating>Age</ion-label>
+                <ion-input type="number" style="border: 1px solid #820131" [(ngModel)]="userData.age" formControlName="age"></ion-input>
+            </ion-item>
+            <ion-item>
 
-            <ion-label floating>Enter Physical Address</ion-label>
-            <ion-input type="text" style="border: 1px solid #820131" [(ngModel)]="userData.address"></ion-input>
-        </ion-item>
+                <ion-label floating>Enter Physical Address</ion-label>
+                <ion-input type="text" style="border: 1px solid #820131" [(ngModel)]="userData.address" formControlName="address"></ion-input>
+            </ion-item>
 
-        <ion-input type="hidden" disabled="true" [(ngModel)]="lati" value="{{lati}}"></ion-input>
+            <ion-input type="hidden" disabled="true" [(ngModel)]="lati" value="{{lati}}" formControlName="latit"></ion-input>
 
-        <ion-input type="hidden" disabled="true" (ngModel)="userData.longitude" value="{{long}}"></ion-input>
+            <ion-input type="hidden" disabled="true" (ngModel)="userData.longitude" value="{{long}}" formControlName="longt"></ion-input>
 
 
-        <ion-item>
-            <ion-label floating>Gender</ion-label>
-            <ion-select [(ngModel)]="userData.sex" style="border: 1px solid #820131">
-                <ion-option value="Female">Female</ion-option>
-                <ion-option value="Male">Male</ion-option>
-            </ion-select>
-        </ion-item>
+            <ion-item>
+                <ion-label floating>Gender</ion-label>
+                <ion-select [(ngModel)]="userData.sex" formControlName="sex" style="border: 1px solid #820131">
+                    <ion-option value="Female">Female</ion-option>
+                    <ion-option value="Male">Male</ion-option>
+                </ion-select>
+            </ion-item>
 
-        <ion-item>
-            <ion-label floating>Crime Type</ion-label>
-            <ion-select [(ngModel)]="userData.crimetype" style="border: 1px solid #820131">
+            <ion-item>
+                <ion-label floating>Crime Type</ion-label>
+                <ion-select [(ngModel)]="userData.crimetype" formControlName="crimetype" style="border: 1px solid #820131">
 
-                <ion-option value="Robbery">Robbery</ion-option>
-                <ion-option value="Murder">Murder</ion-option>
-                <ion-option value="Domestic Violence">Domestic Violence</ion-option>
-                <ion-option value="Homicide">Homicide</ion-option>
-                <ion-option value="Rape">Rape</ion-option>
-                <ion-option value="Suicide">Suicide</ion-option>
-                <ion-option value="Accident">Accident</ion-option>
-                <ion-option value="Chaos">Chaos</ion-option>
-            </ion-select>
-        </ion-item>
-        <ion-item>
+                    <ion-option value="Robbery">Robbery</ion-option>
+                    <ion-option value="Murder">Murder</ion-option>
+                    <ion-option value="Domestic Violence">Domestic Violence</ion-option>
+                    <ion-option value="Homicide">Homicide</ion-option>
+                    <ion-option value="Rape">Rape</ion-option>
+                    <ion-option value="Suicide">Suicide</ion-option>
+                    <ion-option value="Accident">Accident</ion-option>
+                    <ion-option value="Chaos">Chaos</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
 
-            <ion-label floating>Enter Case Details</ion-label>
-            <ion-textarea style="border: 1px solid #820131" rows="4" [(ngModel)]="userData.details"></ion-textarea>
-        </ion-item>
-        <ion-item>
+                <ion-label floating>Enter Case Details</ion-label>
+                <ion-textarea style="border: 1px solid #820131" rows="4" [(ngModel)]="userData.details" formControlName="details"></ion-textarea>
+            </ion-item>
+            <ion-item>
 
-            <ion-input type="hidden" [(ngModel)]="userData.description"></ion-input>
-        </ion-item>
+                <ion-input type="hidden" [(ngModel)]="userData.description" formControlName="description"></ion-input>
+            </ion-item>
 
-        <button ion-button color="default" (click)="signup()" full medium round>Proceed to Submit Report</button>
+            <button ion-button color="default" type="submit" [disabled]="!todo.valid" full medium round>Proceed to Submit Report</button>
+        </form>
     </ion-card>
 
 
