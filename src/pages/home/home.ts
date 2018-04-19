@@ -57,7 +57,7 @@ loadMap() {
         content: "Please wait while map is loading....."
     });
     loader.present();
-
+    let _=this;
     this.geolocation.getCurrentPosition().then((position) => {
 
         let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -74,6 +74,7 @@ loadMap() {
 
         console.log(this.lati);
         loader.dismiss();
+        _.calling();
     }, (err) => {
         console.log(err); 
     });
@@ -89,7 +90,7 @@ this.callNumber.callNumber("0774231343", true)
   }
   call(){
       this.loadMap()
-      this.calling();
+      
     }
 
 }
