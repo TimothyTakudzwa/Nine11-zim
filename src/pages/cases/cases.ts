@@ -49,6 +49,13 @@ export class CasesPage {
           handler: () => {
             console.log('Destructive clicked');
           }
+        }, {
+          text: 'My Reported Cases',
+          role: 'destructive',
+          icon: 'person',
+          handler: () => {
+            console.log('Destructive clicked');
+          }
         },{
           text: 'Use Reference Number',
           icon: 'code-download',

@@ -24,7 +24,7 @@ export class ContactPage {
   };
     responseData: any;
     results: any;
-    constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthService, public loadingController: LoadingController, public geolocation: Geolocation, public alertCtrl: AlertController,) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthService, public loadingController: LoadingController, public geolocation: Geolocation, public alertCtrl: AlertController) {
 
   }
 
