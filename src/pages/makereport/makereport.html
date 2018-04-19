@@ -87,7 +87,7 @@
                 <ion-input type="hidden" [(ngModel)]="userData.description" formControlName="description"></ion-input>
             </ion-item>
 
-            <button ion-button color="default" type="submit" [disabled]="!todo.valid" full medium round>Proceed to Submit Report</button>
+            <button ion-button color="default" [disabled]="!todo.valid" (click)="signup()" full medium round>Proceed to Submit Report</button>
         </form>
     </ion-card>
 
