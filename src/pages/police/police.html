@@ -27,21 +27,21 @@
 
             <ion-list>
 
-                <ion-item>
+                <form [formGroup]="todo">
+                    <ion-item>
 
-                    <ion-label stacked>Username</ion-label>
+                        <ion-label stacked>Username</ion-label>
 
-                    <ion-input type="text" [(ngModel)]="userData.name"></ion-input>
-                </ion-item>
+                        <ion-input type="text" [(ngModel)]="userData.name" formControlName="username"></ion-input>
+                    </ion-item>
 
-                <ion-item>
-                    <ion-label stacked>Password</ion-label>
+                    <ion-item>
+                        <ion-label stacked>Password</ion-label>
 
-                    <ion-input type="password"  [(ngModel)]="userData.phone"></ion-input>
-                </ion-item>
-
-                <button ion-button full color="success" (click)="signup()">Login Now</button>
-
+                        <ion-input type="password"  [(ngModel)]="userData.phone" formControlName="password"></ion-input>
+                    </ion-item>
+                    <button ion-button full color="success" [disabled]="!todo.valid" (click)="signup()">Login Now</button>
+                </form>
             </ion-list>
         </ion-card-content>
     </ion-card>

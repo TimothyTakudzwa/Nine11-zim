@@ -83,6 +83,22 @@ load(){
     });
     confirm.present();
   }
+  showConfirm2() {
+    let confirm = this.alertCtrl.create({
+      title: 'Success',
+      message: 'Case Closed Succesfully',
+      buttons: [
+
+        {
+          text: 'OK',
+          handler: () => {
+            console.log('Agree clicked');
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
 action(lat: any, longt : string, id : any, number : any, ref : any){
   this.lat = lat;
   this.longt = longt;
@@ -140,16 +156,21 @@ action(lat: any, longt : string, id : any, number : any, ref : any){
           text: 'Close Case',
           icon: 'medical',
           role: 'destructive',
-          handler: () => {
-            if (number == "") {
-              this.showConfirm();
-            }
-            else {
-              console.log(number);
-              this.callNumber.callNumber(number, true)
-                .then(() => console.log('Launched dialer!'))
-                .catch(() => console.log('Error launching dialer'));
-            }
+          handler: () => {     
+
+            let loader = this.loadingController.create({
+              content: "Closing Case"
+            });
+
+            loader.present();
+            this.user_name = localStorage.getItem('userName');
+            console.log(this.user_name);
+            this.userData2.user = this.ref;
+            this.authService.postData(this.userData2, 'close.php').then((result) => {
+              loader.dismiss();
+              this.showConfirm2();
+            });
+            
           }
         }
       ]

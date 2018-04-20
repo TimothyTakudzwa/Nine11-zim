@@ -7,7 +7,9 @@ import { LoadingController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service/auth-service';
 import { CasedisplayPage } from '../casedisplay/casedisplay';
 import { ReportsPage } from '../reports/reports';
+import { MyreportedPage } from '../myreported/myreported';
 import { ActionSheetController } from 'ionic-angular';
+import { CallNumber } from '@ionic-native/call-number';  
 /**
  * Generated class for the CasesPage page.
  *
@@ -26,7 +28,7 @@ export class CasesPage {
     "name": "",
   };
   responseData: any;
-  constructor(public navCtrl: NavController, public actionSheetCtrl: ActionSheetController, public authService: AuthService, public loadingController: LoadingController, public navParams: NavParams, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, private callNumber: CallNumber, public actionSheetCtrl: ActionSheetController, public authService: AuthService, public loadingController: LoadingController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -36,8 +38,11 @@ export class CasesPage {
     this.navCtrl.push(MakereportPage);
   }
   call(){
-    this.navCtrl.push(ReportsPage);
+    this.callNumber.callNumber('0774231343', true)
+      .then(() => console.log('Launched dialer!'))
+      .catch(() => console.log('Error launching dialer'));
   }
+
  action() {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Choose Action',
@@ -47,7 +52,7 @@ export class CasesPage {
           role: 'destructive',
           icon: 'person',
           handler: () => {
-            console.log('Destructive clicked');
+            this.navCtrl.push(MyreportedPage);
           }
         },{
           text: 'Use Reference Number',

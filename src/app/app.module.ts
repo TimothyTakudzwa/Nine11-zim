@@ -14,6 +14,7 @@ import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { Tabs2Page } from '../pages/tabs2/tabs2';
+import { MyreportedPage } from '../pages/myreported/myreported';
 import { ReportsPage } from '../pages/reports/reports';
 import { CasesPage } from '../pages/cases/cases';
 import { SignupPage } from '../pages/signup/signup';
@@ -41,6 +42,7 @@ import { CallNumber } from '@ionic-native/call-number';
     MyApp,
     AboutPage,
     ContactPage,
+    MyreportedPage,
     ViewcommentsPage,
     ReviewPage,
     ProgressPage,
@@ -71,6 +73,7 @@ import { CallNumber } from '@ionic-native/call-number';
     ContactPage,
     ReviewPage,
     ProgressPage,
+    MyreportedPage,
     MakereportPage,
     PolicePage,
     MycasesPage, 

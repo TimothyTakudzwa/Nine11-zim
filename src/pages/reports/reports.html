@@ -26,27 +26,29 @@
         <ion-card-content style="background-color: #1f1f21">
 
             <ion-list>
+                <form [formGroup]="todo">
+                    <ion-item>
 
-                <ion-item>
+                        <ion-label stacked>Username</ion-label>
 
-                    <ion-label stacked>Username</ion-label>
+                        <ion-input type="text" [(ngModel)]="userData.name" formControlName="username"></ion-input>
+                    </ion-item>
 
-                    <ion-input type="text" [(ngModel)]="userData.name"></ion-input>
-                </ion-item>
+                    <ion-item>
+                        <ion-label stacked>Password</ion-label>
 
-                <ion-item>
-                    <ion-label stacked>Password</ion-label>
+                        <ion-input type="password"  [(ngModel)]="userData.phone" formControlName="password"></ion-input>
+                    </ion-item>
+                    <button ion-button full color="success" [disabled]="!todo.valid" (click)="signup()">Login Now</button>
+                </form>
 
-                    <ion-input type="password"  [(ngModel)]="userData.phone"></ion-input>
-                </ion-item>
-
-                <button ion-button full color="success" (click)="signup()">Login Now</button>
                 <ion-item>
                     <h2> No account yet? <u (click)="login()" style="color:#51021F">Click to  Sign-Up </u> </h2>
                 </ion-item>
                 <ion-item center text-center> Or alternative you can use the</ion-item>
                 <ion-item> <button ion-button full color="success" (click)="guest()">Emergency Use</button></ion-item>
                 <ion-item> <button ion-button full color="success" (click)="directions()">Police Login</button></ion-item>
+
             </ion-list>
         </ion-card-content>
     </ion-card>

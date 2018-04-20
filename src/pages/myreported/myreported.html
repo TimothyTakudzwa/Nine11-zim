@@ -6,13 +6,28 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>myreported</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>My Reported Cases</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    <ion-card>
 
+        <ion-card-header style="background-color:#820131; color:wheat">
+            My Cases
+        </ion-card-header>
+        <ion-card-content>
+            <ion-list>
+                <button (click)="action(object.lat, object.longt, object.id, object.location, object.case_id)" ion-item *ngFor="let object of objects">
+                <ion-icon name="folder" color="primary" item-start></ion-icon> 
+              <span style="color:#820131">  {{object.case_id}} :  {{object.case_type}} </span>
+            </button>
+
+
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
 </ion-content>

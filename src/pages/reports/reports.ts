@@ -10,6 +10,7 @@ import { LoadingController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { ReportsResponse } from "../../providers/request/ReportsResponse";
 import  { AuthService }  from  '../../providers/auth-service/auth-service';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'page-reports',
@@ -19,8 +20,14 @@ export class ReportsPage {
   responseData: any;
   user_id : any;
   userData = { "name": "", "phone": "" };
-
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController,  public authService: AuthService, public loadingController: LoadingController) {
+   map: any;
+  todo: FormGroup;
+  constructor(public formBuilder: FormBuilder, public navCtrl: NavController, public alertCtrl: AlertController,  public authService: AuthService, public loadingController: LoadingController) {
+    this.todo = new FormGroup({
+      username: new FormControl("", [Validators.required]),
+      password: new FormControl("", [Validators.required]),   
+    });
+ 
   }
 
 
@@ -67,7 +74,7 @@ loader.present();
         loader.dismiss();
         
         this.showAlert();
-      }
+      } 
       else {
         loader.dismiss();
         this.user_id = this.responseData.user_id;

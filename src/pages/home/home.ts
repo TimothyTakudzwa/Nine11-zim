@@ -24,7 +24,7 @@ public goToReportsPage(){
     this.navCtrl.push(CasesPage); 
 }
 public logout(){
-    localStorage.removeItem("username");   
+    let userName = localStorage.setItem('userName', null);   
     this._app.getRootNav().setRoot(ReportsPage);
     
 }

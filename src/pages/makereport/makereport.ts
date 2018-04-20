@@ -30,7 +30,7 @@ export class MakereportPage {
   lati: any = "";
   long: any = "";
   responseData: any;
-  userData = { "name": "", "phone": "", "age": "", "address": "", "latitude": "", "longitude": "", "sex": "", "crimetype": "", "details": "", "description": "" };
+  userData = {"user": "","name": "", "phone": "", "age": "", "address": "", "latitude": "", "longitude": "", "sex": "", "crimetype": "", "details": "", "description": "" };
 
   constructor(public formBuilder: FormBuilder, public navCtrl: NavController, public geolocation: Geolocation, public navParams: NavParams, public authService: AuthService, public loadingController: LoadingController, public alertCtrl: AlertController) {
     this.todo = new FormGroup({
@@ -66,7 +66,7 @@ export class MakereportPage {
             console.log('Agree clicked');
           }
         }
-      ]
+      ] 
     });
     confirm.present();
   }
@@ -74,28 +74,11 @@ export class MakereportPage {
     let loader = this.loadingController.create({
       content: "Loading..."
     });
-
+    this.userData.user = localStorage.getItem('userName');
     this.userData.latitude =this.lati;
     this.userData.longitude = this.long;
     console.log(this.userData.latitude);
     loader.present();
-    // this.authService.postData(this.userData, 'reports.php').then((result) => {
-
-    //   this.responseData = result;
-    //   console.log(this.responseData);
-    //   if (this.responseData.status == 1) {
-    //     // console.log(this.responseData);
-    //     // localStorage.setItem('userData',  JSON.stringify(this.responseData));
-    //     loader.dismiss();
-    //     this.showConfirm();
-    //     this.navCtrl.push(TabsPage);
-    //   }
-    //   else { console.log("User already exists"); }
-    // }, (err) => {
-    //   // Error log
-    // });
-    
-
     this.authService.postItem(this.userData,'reports.php').subscribe(
       res => { 
         loader.dismiss();

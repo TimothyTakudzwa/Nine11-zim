@@ -10,6 +10,7 @@ import { LoadingController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { ReportsResponse } from "../../providers/request/ReportsResponse";
 import { AuthService } from '../../providers/auth-service/auth-service';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 /**
  * Generated class for the PolicePage page.
@@ -28,8 +29,13 @@ user_name : any;
   responseData: any;
   user_id: any;
   userData = { "name": "", "phone": "" };
+  todo: FormGroup;
+  constructor(public formBuilder: FormBuilder, public navCtrl: NavController, public alertCtrl: AlertController, public authService: AuthService, public loadingController: LoadingController) {
+    this.todo = new FormGroup({
+      username: new FormControl("", [Validators.required]),
+      password: new FormControl("", [Validators.required]),
+    });
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public authService: AuthService, public loadingController: LoadingController) {
   }
 
 
