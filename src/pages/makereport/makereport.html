@@ -31,12 +31,12 @@
             </ion-card-header>
             <ion-item>
 
-                <ion-label floating>Enter Full Name</ion-label>
+                <ion-label floating>Enter Full Name<span style="color:#b70b16">*<small>This is a required field</small></span></ion-label>
                 <ion-input type="text" style="border: 1px solid #820131" [(ngModel)]="userData.name" formControlName="fullname"></ion-input>
             </ion-item>
             <ion-item>
 
-                <ion-label floating>Enter Phone Number</ion-label>
+                <ion-label floating>Enter Phone Number<span style="color:#b70b16">*<small>This is a required field</small></span></ion-label>
                 <ion-input type="number" style="border: 1px solid #820131" [(ngModel)]="userData.phone" formControlName="phone"></ion-input>
             </ion-item>
             <ion-item>
@@ -79,7 +79,7 @@
             </ion-item>
             <ion-item>
 
-                <ion-label floating>Enter Case Details</ion-label>
+                <ion-label floating>Enter Case Details<span style="color:#b70b16">*<small>This is a required field</small></span></ion-label>
                 <ion-textarea style="border: 1px solid #820131" rows="4" [(ngModel)]="userData.details" formControlName="details"></ion-textarea>
             </ion-item>
             <ion-item>
@@ -87,6 +87,8 @@
                 <ion-input type="hidden" [(ngModel)]="userData.description" formControlName="description"></ion-input>
             </ion-item>
 
+            <h2> If the proceed button is not working, Please Check if the fields with <span style="color:#b70b16">*<small>This is a required field</small></span> are filled
+            </h2>
             <button ion-button color="default" [disabled]="!todo.valid" (click)="signup()" full medium round>Proceed to Submit Report</button>
         </form>
     </ion-card>

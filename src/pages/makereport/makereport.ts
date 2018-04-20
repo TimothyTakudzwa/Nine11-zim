@@ -36,7 +36,7 @@ export class MakereportPage {
     this.todo = new FormGroup({
       fullname: new FormControl("",[Validators.required]),
      
-      phone: new FormControl(""),
+      phone: new FormControl("", [Validators.required]),
       address: new FormControl(""),
       age: new FormControl(""),
       sex: new FormControl([]),
